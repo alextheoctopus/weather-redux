@@ -1,0 +1,45 @@
+{
+    "coord": {
+      "lon": 54,
+      "lat": 56
+    },
+    "weather": [
+      {
+        "id": 501,
+        "main": "Sun"
+      }
+    ],
+    "base": "stations",
+    "main": {
+      "temp": 278.48,
+      "feels_like": 298.74,
+      "temp_min": 277.56,
+      "temp_max": 280.05,
+      "pressure": 1015,
+      "humidity": 64
+    },
+    "visibility": 10000,
+    "wind": {
+      "speed": 0.62,
+      "deg": 349,
+      "gust": 1.18
+    },
+    "rain": {
+      "1h": 3.16
+    },
+    "clouds": {
+      "all": 100
+    },
+    "dt": 1661870592,
+    "sys": {
+      "type": 2,
+      "id": 2075663,
+      "country": "RU",
+      "sunrise": 1661834187,
+      "sunset": 1661882248
+    },
+    "timezone": 7200,
+    "id": 3163858,
+    "name": "Izhevsk",
+    "cod": 200
+  }   
