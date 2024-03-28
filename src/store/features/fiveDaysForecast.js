@@ -16,46 +16,573 @@ export const fetchFiveDaysForecast = createAsyncThunk('fetchFiveDaysForecast', a
 export const fiveDaysForecast = createSlice({
     name: "fiveDaysForecast",
     initialState: {
-        data: [{}] || localStorage.getItem('fiveDaysForecast'),
+        data:
+        {
+            "cnt": 40,
+            "list": [
+                {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                }, {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 278,
+                        "feels_like": 279,
+                        "temp_min": 270,
+                        "temp_max": 280,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-03-28 15:00:00"
+                },
+            ],
+            "city": {
+                "name": "Izhevsk",
+                "country": "Russia",
+                "sunrise": 1661834187,
+                "sunset": 1661882248
+            }
+        },
         loading: false,
-        error: '',
-        day: null,
-        weekDay: null,
-        month: null,
-        time: null,
-        lastFecthedTime: null || localStorage.getItem('lastTimeFiveDaysForecast'),
+        error: null,
+        dataList: JSON.parse(localStorage.getItem("5daysWeather")) || null,
         ApiKey: "fineg5236gernjeongre",
     },
     reducers: {
-        getDate: (state, action) => {
-            let currentDate = new Date();
-            if (action.payload === 'currentTime') {//частота вызова функции каждая минута=> вынести в отдельный виджет Время
-                state.month = currentDate.toLocaleString('en-us', { month: 'long' });
-                state.day = currentDate.getDate();
-                let days = [
-                    'Sunday',
-                    'Monday',
-                    'Tuesday',
-                    'Wednesday',
-                    'Thursday',
-                    'Friday',
-                    'Saturday'
-                ];
-
-                let n = currentDate.getDay();
-                let currentTime = currentDate.toString();
-                state.time = currentTime.slice(15, 21);
-                state.weekDay = days[n];
-            } else if (action.payload === 'lastFetchedTime') {//вызвать при загрузке данных
-                let currentDate = new Date();
-                let month = currentDate.toLocaleString('en-us', { month: 'long' });
-                let day = currentDate.getDate();
-                let currentTime = currentDate.toString();
-                let time = currentTime.slice(15, 21);
-                state.lastFecthedTime = day + " " + month + " " + time;
-                localStorage.setItem('lastTimeFiveDaysForecast', day + " " + month + " " + time);
+        updateData5: (state) => {
+            if (state.error === null && state.loading === false) {
+                let localStorageList = [];
+                state.data.list.forEach((timestamp) => {
+                    let params = {
+                        maxTemp: null,
+                        minTemp: null,
+                        precipitations: [],
+                        probabilityOfPerc: null,
+                        time: null,
+                        pop:null
+                    };
+                    Math.round(timestamp.main.temp_max - 273) >= 0 ?
+                        params.maxTemp = "+" + Math.round(timestamp.main.temp_max - 273) :
+                        params.maxTemp = Math.round(timestamp.main.temp_max - 273)
+                    Math.round(timestamp.main.temp_min - 273) >= 0 ?
+                        params.minTemp = "+" + Math.round(timestamp.main.temp_min - 273) :
+                        params.minTemp = Math.round(timestamp.main.temp_min - 273)
+                    params.pop = timestamp.pop * 100 + "% ";
+                    timestamp.weather.forEach((condition) => params.precipitations.push(condition));//состояние на данный момент
+                    params.time = timestamp.dt_txt;
+                    localStorageList.push(params);
+                });
+                //divideIntoDays
+                let dayData = [];
+                let fiveDaysData = [];
+                localStorageList.forEach((threeHourData, index) => {
+                    dayData.push(threeHourData);
+                    if (index % 7 === 0 && index != 0) {
+                        fiveDaysData.push(dayData);
+                        dayData = [];
+                    }
+                })
+                localStorage.setItem('5daysWeather', JSON.stringify(fiveDaysData));
             }
-        },
+        }
     },
     extraReducers: (builder) => {
         builder
@@ -65,8 +592,7 @@ export const fiveDaysForecast = createSlice({
             })
             .addCase(fetchFiveDaysForecast.fulfilled, (state, action) => {
                 state.loading = false;
-                state.data = action.payload;
-                localStorage.setItem('fiveDaysForecast', JSON.stringify(action.payload));
+                // state.data = action.payload;
             })
             .addCase(fetchFiveDaysForecast.rejected, (state, action) => {
                 state.loading = false; //и если ошибка, то мы выводим и ошибку(офлайн) и последние данные из локалсторедж
@@ -74,4 +600,5 @@ export const fiveDaysForecast = createSlice({
             });
     }
 });
+export const { updateData5 } = fiveDaysForecast.actions;
 export default fiveDaysForecast.reducer;

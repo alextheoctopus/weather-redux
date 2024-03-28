@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import time from "./time";
 
 export const fetchCurrentForecast = createAsyncThunk('fetchCurrentForecast', async (data) => {
     if (data.location.city) {
@@ -18,8 +19,10 @@ export const currentForecast = createSlice({
         data: {
             "weather": [
                 {
-                    "id": 501,
                     "main": "Rain"
+                },
+                {
+                    "main": "Snow"
                 }
             ],
             "main": {
@@ -30,6 +33,7 @@ export const currentForecast = createSlice({
                 "pressure": 1008,
                 "humidity": 69
             },
+            "pop": 1,
             "visibility": 10000,//видимость в метрах
             "wind": {
                 "speed": 0.62,
@@ -45,50 +49,17 @@ export const currentForecast = createSlice({
             "clouds": {
                 "all": 100 //процент облачности
             },
-        } || localStorage.getItem('currentForecast'),
+        },//|| localStorage.getItem('currentForecast'),
         loading: false,
         error: '',
-        day: null,
-        weekDay: null,
-        month: null,
-        time: null,
-        curTemp: null,
-        maxTemp: null,
-        minTemp: null,
-        percipitations: [],
-        lastFecthedTime: null || localStorage.getItem('lastFecthedTime'),
+        curTemp: null || localStorage.getItem('curTemp'),
+        maxTemp: null || localStorage.getItem('maxTemp'),
+        minTemp: null || localStorage.getItem('minTemp'),
+        precipitations: null || JSON.parse(localStorage.getItem('precipitations')),
+        pop: 0 || localStorage.getItem('probability'),
         ApiKey: "fineg5236gernjeongre",
     },
     reducers: {
-        getDate: (state, action) => {
-            let currentDate = new Date();
-            if (action.payload === 'currentTime') {//частота вызова функции каждая минута=> вынести в отдельный виджет Время
-                state.month = currentDate.toLocaleString('en-us', { month: 'long' });
-                state.day = currentDate.getDate();
-                let days = [
-                    'Sunday',
-                    'Monday',
-                    'Tuesday',
-                    'Wednesday',
-                    'Thursday',
-                    'Friday',
-                    'Saturday'
-                ];
-
-                let n = currentDate.getDay();
-                let currentTime = currentDate.toString();
-                state.time = currentTime.slice(15, 21);
-                state.weekDay = days[n];
-            } else if (action.payload === 'lastFetchedTime') {//вызвать при загрузке данных
-                let currentDate = new Date();
-                let month = currentDate.toLocaleString('en-us', { month: 'long' });
-                let day = currentDate.getDate();
-                let currentTime = currentDate.toString();
-                let time = currentTime.slice(15, 21);
-                state.lastFecthedTime = day + " " + month + " " + time;
-                localStorage.setItem('lastFecthedTime', day + " " + month + " " + time);
-            }
-        },
         updateData: (state) => {
             Math.round(state.data.main.temp - 273) >= 0 ?
                 state.curTemp = "+" + Math.round(state.data.main.temp - 273) :
@@ -99,7 +70,14 @@ export const currentForecast = createSlice({
             Math.round(state.data.main.temp_min - 273) >= 0 ?
                 state.minTemp = "+" + Math.round(state.data.main.temp_min - 273) :
                 state.minTemp = Math.round(state.data.main.temp_min - 273)
-            state.data.weather.forEach((condition) => state.percipitations.push(condition));//состояние на данный момент
+            state.precipitations=[];
+            state.data.weather.forEach((condition) => state.precipitations.push(condition));//состояние на данный момент
+            localStorage.setItem('curTemp', state.curTemp);
+            localStorage.setItem('maxTemp', state.maxTemp);
+            localStorage.setItem('minTemp', state.minTemp);
+            localStorage.setItem('precipitations', JSON.stringify(state.precipitations));
+            state.pop = state.data.pop * 100 + "%";
+            localStorage.setItem('probability', state.data.pop * 100 + "%");
         }
     },
     extraReducers: (builder) => {
@@ -111,8 +89,6 @@ export const currentForecast = createSlice({
             .addCase(fetchCurrentForecast.fulfilled, (state, action) => {
                 state.loading = false;
                 // state.data = action.payload; //раскомментировать для отчёта
-                // localStorage.setItem('currentForecast', JSON.stringify(action.payload));
-                localStorage.setItem('currentForecast', JSON.stringify(state.data));
             })
             .addCase(fetchCurrentForecast.rejected, (state, action) => {
                 state.loading = false; //и если ошибка, то мы выводим и ошибку(офлайн) и последние данные из локалсторедж
@@ -120,4 +96,5 @@ export const currentForecast = createSlice({
             });
     }
 });
+export const { getDate, updateData } = currentForecast.actions;
 export default currentForecast.reducer;

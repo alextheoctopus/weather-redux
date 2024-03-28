@@ -22,13 +22,14 @@ export const location = createSlice({
     initialState: {
         location: {
             latitude: null || localStorage.getItem("latitude"),
-            longitude: null || localStorage.getItem("longitude")
-        }, 
+            longitude: null || localStorage.getItem("longitude"),
+            city: null || localStorage.getItem("city"),
+        },
         loading: false,
         error: null,
         countries: countries.countries,
         cities: null,
-        city: null || localStorage.getItem("city"),
+        // city: null || localStorage.getItem("city"),
         country: null
     },
     reducers: {
@@ -44,7 +45,8 @@ export const location = createSlice({
             localStorage.removeItem('latitude');
             localStorage.removeItem('longitude');
             localStorage.setItem('city', action.payload);
-            state.city = action.payload;
+            // state.city = action.payload;
+            state.location.city = action.payload;
         },
         setCities: (state, action) => {
             state.cities = action.payload;

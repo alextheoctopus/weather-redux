@@ -1,14 +1,15 @@
-import { Grid, Stack } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { store } from "./store/store";
-import { getAutoUserPosition, getCurrentForecast, getFiveDaysForecast } from "./store/actions/Actions";
 import { WindowLoc } from "./components/location/windowLocation/windowLoc";
 import { Logo } from './components/logo/logo';
 import { LocationPlace } from './components/location/LocationPlace';
 import { useState } from "react";
 import { AppContext } from "./components/AppContext";
 import CurrentWeatherWidget from "./components/WeatherWidget/CurrentWeatherWidget";
+import { UpdateHandler } from "./components/updateHandler/UpdateHandler";
+import {WeekWeatherWidget} from "./components/WeekWeatherWidget/WeekWeatherWidget";
 let AppStyle = {
   textAlign: "center",
   width: "360px",
@@ -29,18 +30,22 @@ const AppRedux = () => {
 }
 const MainApp = ({ dispatch }) => {
   const [loc, setLoc] = useState(false);
-  return (
+  const locationRedux = useSelector(state => state.location);
+
+  return (//сделать компонент с загрузкой крутящейся при условии loading&&!state.maxTemp
     <AppContext.Provider value={{ loc, setLoc }}>
-      <Grid container>
-        {loc && <WindowLoc dispatch={dispatch}></WindowLoc>}
-        <Stack container>
-          <Stack direction="row">
-            <Logo />
-            <LocationPlace></LocationPlace>
-          </Stack>
-        </Stack >
+      {loc && <WindowLoc dispatch={dispatch}></WindowLoc>}
+      <Stack container>
+        <Stack direction="row">
+          <Logo />
+          <LocationPlace></LocationPlace>
+        </Stack>
+      </Stack >
+      {locationRedux.location.latitude || locationRedux.location.city ? <Stack direction="column">
         <CurrentWeatherWidget></CurrentWeatherWidget>
-      </Grid>
+        <UpdateHandler type='FiveDays'></UpdateHandler>
+        <WeekWeatherWidget></WeekWeatherWidget>
+      </Stack > : <Typography fontSize={25} color={"white"}> To display the weather, please select a location </Typography>}
     </AppContext.Provider >
   );
 }
