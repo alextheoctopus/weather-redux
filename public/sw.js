@@ -21,8 +21,8 @@ this.addEventListener('fetch', (event) => {
                     if (resp) {
                         return resp
                     }
-                    //let requestUrl=event.request.clone();//if some data isn't cached?
-                    //fetch(requestUrl);
+                    let requestUrl=event.request.clone();//if some data isn't cached?
+                    fetch(requestUrl);
                 })
         );
     }

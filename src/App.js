@@ -9,7 +9,7 @@ import { useState } from "react";
 import { AppContext } from "./components/AppContext";
 import CurrentWeatherWidget from "./components/WeatherWidget/CurrentWeatherWidget";
 import { UpdateHandler } from "./components/updateHandler/UpdateHandler";
-import {WeekWeatherWidget} from "./components/WeekWeatherWidget/WeekWeatherWidget";
+import { WeekWeatherWidget } from "./components/WeekWeatherWidget/WeekWeatherWidget";
 let AppStyle = {
   textAlign: "center",
   width: "360px",
@@ -34,6 +34,7 @@ const MainApp = ({ dispatch }) => {
 
   return (//сделать компонент с загрузкой крутящейся при условии loading&&!state.maxTemp
     <AppContext.Provider value={{ loc, setLoc }}>
+      {!navigator.onLine && <Typography color={"#212121"}>You are in offline mode</Typography>}
       {loc && <WindowLoc dispatch={dispatch}></WindowLoc>}
       <Stack container>
         <Stack direction="row">
