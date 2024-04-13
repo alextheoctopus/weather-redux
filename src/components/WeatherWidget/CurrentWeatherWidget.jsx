@@ -2,21 +2,37 @@ import { Box, Stack, Typography } from '@mui/material';
 import { TimeWidget } from './TimeWidget/TimeWidget';
 import { useSelector } from 'react-redux';
 import { UpdateHandler } from '../updateHandler/UpdateHandler';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@emotion/react';
+const theme = createTheme();
+
+theme.typography.h3 = {
+    fontWeight: 'light',
+    fontSize: '1.2rem',
+    '@media (min-width:600px)': {
+        fontSize: '1.2rem',
+    },
+    [theme.breakpoints.up('md')]: {
+        fontSize: '1.2rem',
+    },
+};
 const CurrentWeatherWidget = () => {
     const currentWeatherRedux = useSelector(state => state.currentForecast)
     return (
         <>
             <UpdateHandler type='Current'></UpdateHandler>
-            <Box margin="auto" sx={{ borderRadius: 5, width: "92%", height: "226px", margin: "auto", backgroundColor: "#d9d9d96e" }}>
+            <Box margin="auto" sx={{ borderRadius: 5, width: "80%", height: "226px", margin: "auto", backgroundColor: "#d9d9d96e" }}>
                 <Stack direction="row">
                     {currentWeatherRedux.data ? <Stack direction="column" margin="auto">
-                        <Typography fontSize={56} marginTop={"10%"} color="#343434">{currentWeatherRedux.curTemp}°С</Typography>
-                        <Stack direction="column">{currentWeatherRedux.precipitations &&
-                            currentWeatherRedux.precipitations.map((state, index) =>
-                                <Typography fontSize={14} color="#343434" key={index}>{state.main}</Typography>)}
-                        </Stack>
-                        <Typography fontSize={16} margin={"5%"} color="#343434">{currentWeatherRedux.minTemp}°С/{currentWeatherRedux.maxTemp}°С</Typography>
-                        <Typography fontSize={16} color="#343434">Probability of precipitation:{currentWeatherRedux.pop}</Typography>
+                        <ThemeProvider theme={theme}>
+                            <Typography variant="h3" marginTop={"10%"} color="#343434">{currentWeatherRedux.curTemp}°С</Typography>
+                            <Stack direction="column">{currentWeatherRedux.precipitations &&
+                                currentWeatherRedux.precipitations.map((state, index) =>
+                                    <Typography variant="h3" color="#343434" fontWeight={'medium'} key={index}>{state.main}</Typography>)}
+                            </Stack>
+                            <Typography variant="h3" margin={"5%"} color="#343434">{currentWeatherRedux.minTemp}°С/{currentWeatherRedux.maxTemp}°С</Typography>
+                            <Typography variant="h3" color="#343434" fontWeight={'medium'}>Probability of precipitation: {currentWeatherRedux.pop}</Typography>
+                        </ThemeProvider>
                     </Stack> : ''}
                     <TimeWidget></TimeWidget>
                 </Stack>

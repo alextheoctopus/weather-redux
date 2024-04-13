@@ -23,9 +23,9 @@ export const fiveDaysForecast = createSlice({
                 {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 270,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 279,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -51,13 +51,47 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-13 03:00:00",
+                },
+                {
+                    "dt": 1661871600,
+                    "main": {
+                        "temp": 271,
+                        "feels_like": 279,
+                        "temp_min": 268,
+                        "temp_max": 286,
+                        "pressure": 1009,
+                        "humidity": 70,
+                    },
+                    "weather": [
+                        {
+                            "main": "Rain",
+                        }
+                    ],
+                    "clouds": {
+                        "all": 100
+                    },
+                    "wind": {
+                        "speed": 0.62,
+                        "deg": 349,
+                        "gust": 1.18
+                    },
+                    "visibility": 10000,
+                    "pop": 0.60,
+                    "rain": {
+                        "3h": 0.26
+                    },
+                    "sys": {
+                        "pod": "d"
+                    },
+                    "dt_txt": "2024-04-13 06:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 273,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 265,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -83,13 +117,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-13 09:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 273,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 275,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -115,13 +150,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-13 12:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 274,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 272,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -147,13 +183,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-13 15:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 275,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 277,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -179,13 +216,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-13 18:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 273,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 271,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -211,13 +249,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-13 21:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 270,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 272,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -243,11 +282,12 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-14 00:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 268,
                         "feels_like": 279,
                         "temp_min": 270,
                         "temp_max": 280,
@@ -275,13 +315,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-14 03:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 268,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 267,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -307,13 +348,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-14 06:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 267,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 264,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -339,13 +381,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-14 09:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 269,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 275,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -371,13 +414,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-14 12:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 273,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 277,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -403,13 +447,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-14 15:00:00",
+
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 279,
                         "feels_like": 279,
-                        "temp_min": 270,
+                        "temp_min": 278,
                         "temp_max": 280,
                         "pressure": 1009,
                         "humidity": 70,
@@ -435,14 +480,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-14 18:00:00",
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 280,
                         "feels_like": 279,
-                        "temp_min": 270,
-                        "temp_max": 280,
+                        "temp_min": 271,
+                        "temp_max": 282,
                         "pressure": 1009,
                         "humidity": 70,
                     },
@@ -467,14 +512,14 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-15 21:00:00"
                 }, {
                     "dt": 1661871600,
                     "main": {
-                        "temp": 278,
+                        "temp": 280,
                         "feels_like": 279,
-                        "temp_min": 270,
-                        "temp_max": 280,
+                        "temp_min": 271,
+                        "temp_max": 282,
                         "pressure": 1009,
                         "humidity": 70,
                     },
@@ -499,39 +544,7 @@ export const fiveDaysForecast = createSlice({
                     "sys": {
                         "pod": "d"
                     },
-                    "dt_txt": "2024-03-28 15:00:00"
-                }, {
-                    "dt": 1661871600,
-                    "main": {
-                        "temp": 278,
-                        "feels_like": 279,
-                        "temp_min": 270,
-                        "temp_max": 280,
-                        "pressure": 1009,
-                        "humidity": 70,
-                    },
-                    "weather": [
-                        {
-                            "main": "Rain",
-                        }
-                    ],
-                    "clouds": {
-                        "all": 100
-                    },
-                    "wind": {
-                        "speed": 0.62,
-                        "deg": 349,
-                        "gust": 1.18
-                    },
-                    "visibility": 10000,
-                    "pop": 0.60,
-                    "rain": {
-                        "3h": 0.26
-                    },
-                    "sys": {
-                        "pod": "d"
-                    },
-                    "dt_txt": "2024-03-28 15:00:00"
+                    "dt_txt": "2024-04-15 00:00:00"
                 },
             ],
             "city": {
@@ -542,45 +555,46 @@ export const fiveDaysForecast = createSlice({
             }
         },
         loading: false,
+        fiveDaysData: JSON.parse(localStorage.getItem("5daysWeather")) || null,
         error: null,
-        dataList: JSON.parse(localStorage.getItem("5daysWeather")) || null,
+        dataList: null,
         ApiKey: "fineg5236gernjeongre",
     },
     reducers: {
         updateData5: (state) => {
+            state.fiveDaysData = []
             if (state.error === null && state.loading === false) {
                 let localStorageList = [];
                 state.data.list.forEach((timestamp) => {
                     let params = {
-                        maxTemp: null,
-                        minTemp: null,
+                        // maxTemp: null,
+                        // minTemp: null,
+                        temp: null,
                         precipitations: [],
                         probabilityOfPerc: null,
-                        time: null,
-                        pop:null
+                        day: null,
+                        hour: null,
+                        pop: null
                     };
-                    Math.round(timestamp.main.temp_max - 273) >= 0 ?
-                        params.maxTemp = "+" + Math.round(timestamp.main.temp_max - 273) :
-                        params.maxTemp = Math.round(timestamp.main.temp_max - 273)
-                    Math.round(timestamp.main.temp_min - 273) >= 0 ?
-                        params.minTemp = "+" + Math.round(timestamp.main.temp_min - 273) :
-                        params.minTemp = Math.round(timestamp.main.temp_min - 273)
+                    // Math.round(timestamp.main.temp_max - 273) >= 0 ?
+                    //     params.maxTemp = "+" + Math.round(timestamp.main.temp_max - 273) :
+                    //     params.maxTemp = Math.round(timestamp.main.temp_max - 273)
+                    Math.round(timestamp.main.temp - 273) >= 0 ?
+                        params.temp = "+" + Math.round(timestamp.main.temp - 273) :
+                        params.temp = Math.round(timestamp.main.temp - 273)
                     params.pop = timestamp.pop * 100 + "% ";
                     timestamp.weather.forEach((condition) => params.precipitations.push(condition));//состояние на данный момент
-                    params.time = timestamp.dt_txt;
+                    params.day = timestamp.dt_txt.slice(0, 10);
+                    params.hour = timestamp.dt_txt.slice(11, 13);
                     localStorageList.push(params);
                 });
                 //divideIntoDays
                 let dayData = [];
-                let fiveDaysData = [];
-                localStorageList.forEach((threeHourData, index) => {
-                    dayData.push(threeHourData);
-                    if (index % 7 === 0 && index != 0) {
-                        fiveDaysData.push(dayData);
-                        dayData = [];
-                    }
-                })
-                localStorage.setItem('5daysWeather', JSON.stringify(fiveDaysData));
+
+                for (let i = 0; i < localStorageList.length; i += 8) {
+                    state.fiveDaysData.push(localStorageList.slice(i, i + 8));
+                }
+                localStorage.setItem('5daysWeather', JSON.stringify(state.fiveDaysData));
             }
         }
     },

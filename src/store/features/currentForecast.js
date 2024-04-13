@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import time from "./time";
 
 export const fetchCurrentForecast = createAsyncThunk('fetchCurrentForecast', async (data) => {
     if (data.location.city) {
@@ -49,7 +48,7 @@ export const currentForecast = createSlice({
             "clouds": {
                 "all": 100 //процент облачности
             },
-        },//|| localStorage.getItem('currentForecast'),
+        },
         loading: false,
         error: '',
         curTemp: null || localStorage.getItem('curTemp'),
@@ -57,7 +56,7 @@ export const currentForecast = createSlice({
         minTemp: null || localStorage.getItem('minTemp'),
         precipitations: null || JSON.parse(localStorage.getItem('precipitations')),
         pop: 0 || localStorage.getItem('probability'),
-        ApiKey: "fineg5236gernjeongre",
+        // ApiKey: "b6907d289e10d714a6e88b30761fae25",
     },
     reducers: {
         updateData: (state) => {

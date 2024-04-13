@@ -25,13 +25,13 @@ export const time = createSlice({
                 'Friday',
                 'Saturday'
             ];
-            if (action.payload === 'currentTime') {//частота вызова функции каждая минута=> вынести в отдельный виджет Время
+            if (action.payload === 'currentTime') {
                 state.month = month;
                 state.day = day;
                 let n = currentDate.getDay();
                 state.time = time;
                 state.weekDay = days[n];
-            } else if (action.payload === 'lastFetchedTimeCurrent') {//вызвать при загрузке данных
+            } else if (action.payload === 'lastFetchedTimeCurrent') {
                 localStorage.setItem('lastFetchedTimeCurrent', day + " " + month + " " + time);
                 state.lastFetchedCurrent = day + " " + month + " " + time;
             } else if (action.payload === 'lastFetchedTimeFive') {

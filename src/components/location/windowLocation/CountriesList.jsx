@@ -21,12 +21,16 @@ export const CountriesList = ({ dispatch, setLoc }) => {
             </Stack>
             {!reduxLocation.cities ? countries.map((location, ind) =>
                 regex.test(location) ?
-                    <Button key={ind} size='small' onClick={() => { dispatch(setCountry(location)); setValue(''); dispatch(getCities(location)) }}>
+                    <Button key={ind} size='small' onClick={() => {
+                        dispatch(setCountry(location));
+                        setValue('');
+                        dispatch(getCities(location))
+                    }}>
                         <Typography fontSize={12} color={"white"}>{location}</Typography>
                     </Button> : '') :
                 reduxLocation.cities.map((town, ind) =>
                     regex.test(town) ?
-                        <Button key={ind} size='small' onClick={() => { dispatch(setCity(town)); setLoc(false); dispatch(setCities(null))}}>
+                        <Button key={ind} size='small' onClick={() => { dispatch(setCity(town)); setLoc(false); dispatch(setCities(null)) }}>
                             <Typography fontSize={12} color={"white"}>{town}</Typography>
                         </Button> : '')}
         </Stack>

@@ -1,7 +1,22 @@
 import React from "react";
-
-import { Box, Typography, Stack } from "@mui/material";
+import { Box, Typography, Stack, ThemeProvider } from "@mui/material";
 import { useSelector } from "react-redux";
+import { createTheme } from '@mui/material/styles';
+
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+const theme = createTheme();
+
+theme.typography.h2 = {
+    fontWeight: 'light',
+    fontSize: '1.2rem',
+    '@media (min-width:600px)': {
+        fontSize: '1.2rem',
+    },
+    [theme.breakpoints.up('md')]: {
+        fontSize: '1.2rem',
+    },
+};
+
 export const WeekWeatherWidget = () => {
     const fiveDaysForecastRedux = useSelector(state => state.fiveDaysForecast)
 
@@ -9,25 +24,50 @@ export const WeekWeatherWidget = () => {
         backgroundColor: "rgba(249, 241, 250, 0.51)",
         margin: "auto",
         marginTop: "3%",
-        width: "92%",
-        height: "50px",
+        width: "80%",
+        height: "350px",
         borderRadius: 5
     }
-    console.log(fiveDaysForecastRedux.dataList[0])
+
     return (
         <Stack direction="column">
-            {fiveDaysForecastRedux.dataList.map((day) => {
-                return day.map((threeHour, index) => {
-                    return (<Box sx={boxStyle} key={index} padding={"auto"}>
-                        <Stack direction="row">
-                            <Typography fontSize={14} color={"salmon"} marginLeft={"3%"} marginTop={"1%"}>{threeHour.time}</Typography>
-                            <Typography fontSize={14} color={"salmon"} marginTop={"0.3%"} position="absolute" left={"49%"}>{threeHour.pop}</Typography>
-                            <Typography fontSize={14} color={"salmon"} marginTop={"0.3%"} position="absolute" left={"57%"}>{threeHour.minTemp}/{threeHour.maxTemp}°C</Typography>
-                        </Stack>
-                    </Box>)
-                })
+            {fiveDaysForecastRedux.fiveDaysData.map((day, index) => {
+                return <Box sx={boxStyle} key={index} padding={"auto"}>
+                    <Typography>{day.day}</Typography>
+                    <ResponsiveContainer width="90%" height="70%">
+                        <LineChart
+                            width={500}
+                            height={380}
+                            data={day}
+                            margin={{
+                                top: 10,
+                                right: 0,
+                                left:-25,
+                                bottom: 0,
+                            }}
+                        >
+                            <CartesianGrid vertical={true} strokeDasharray="3 3"></CartesianGrid>
+                            <XAxis dataKey="hour" />
+                            <YAxis/>
+                            <Tooltip />
+                            <Legend/>
+                            <Line type="monotone" dataKey="temp" stroke="#84d89d" dot={{ r: 8 }} />
+                        </LineChart>
+                    </ResponsiveContainer>
+                </Box>
             })}
         </Stack>
     )
 
 }
+/* {day.map((threeHour) => {
+                        return (
+                            <Stack direction="row">
+                                <ThemeProvider theme={theme}>
+                                    <Typography variant="h2" margin={'auto'}>{threeHour.time}</Typography>
+                                    <Typography variant="h2" margin={'auto'}>{threeHour.pop}</Typography>
+                                    <Typography variant="h2" margin={'auto'}>{threeHour.minTemp}/{threeHour.maxTemp}°C</Typography>
+                                </ThemeProvider>
+                            </Stack>
+                        )
+                    })} */

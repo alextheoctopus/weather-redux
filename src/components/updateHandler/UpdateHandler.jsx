@@ -16,7 +16,6 @@ export const UpdateHandler = ({ type, selector }) => {
     const updateHandlerFiveDays = () => {
         getFiveDaysForecast(dispatch, locationRedux.location, fiveDaysForecastRedux.ApiKey);
     }
-    // к кнопкам написать Дата последнего обновления текущей погоды: currentForeacstRedux.lastFetchedTime
     return (
         <>
             {type === "Current" ?

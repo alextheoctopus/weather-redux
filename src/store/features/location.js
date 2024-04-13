@@ -29,7 +29,6 @@ export const location = createSlice({
         error: null,
         countries: countries.countries,
         cities: null,
-        // city: null || localStorage.getItem("city"),
         country: null
     },
     reducers: {
@@ -45,7 +44,6 @@ export const location = createSlice({
             localStorage.removeItem('latitude');
             localStorage.removeItem('longitude');
             localStorage.setItem('city', action.payload);
-            // state.city = action.payload;
             state.location.city = action.payload;
         },
         setCities: (state, action) => {
@@ -66,7 +64,6 @@ export const location = createSlice({
                 localStorage.removeItem('city');
                 localStorage.setItem('longitude', action.payload.longitude);
                 localStorage.setItem('latitude', action.payload.latitude);
-                console.log(JSON.stringify(state.location));
             })
             .addCase(fetchLocation.rejected, (state, action) => {
                 state.loading = false;
