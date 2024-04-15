@@ -10,10 +10,9 @@ import { AppContext } from "./components/AppContext";
 import CurrentWeatherWidget from "./components/WeatherWidget/CurrentWeatherWidget";
 import { UpdateHandler } from "./components/updateHandler/UpdateHandler";
 import { WeekWeatherWidget } from "./components/WeekWeatherWidget/WeekWeatherWidget";
+import { getFiveDaysForecast } from "./store/actions/Actions";
 let AppStyle = {
   textAlign: "center",
-  // width: "100%",
-  // height: "1225px",
   background: "linear-gradient(#3E3EB0,#b5b5c552 , #D9D9D9)",
   marginLeft: "auto",
   marginRight: "auto"
@@ -29,7 +28,6 @@ const AppRedux = () => {
 const MainApp = ({ dispatch }) => {
   const [loc, setLoc] = useState(false);
   const locationRedux = useSelector(state => state.location);
-
   return (
     <AppContext.Provider value={{ loc, setLoc }}>
       {!navigator.onLine && <Typography color={"#212121"}>You are in offline mode</Typography>}

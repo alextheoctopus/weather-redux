@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Typography, Stack, ThemeProvider } from "@mui/material";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { createTheme } from '@mui/material/styles';
-
+import { updateData5 } from "../../store/features/fiveDaysForecast";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 const theme = createTheme();
 
@@ -18,14 +18,14 @@ theme.typography.h2 = {
 };
 
 export const WeekWeatherWidget = () => {
+    
     const fiveDaysForecastRedux = useSelector(state => state.fiveDaysForecast)
-
     let boxStyle = {
         backgroundColor: "rgba(249, 241, 250, 0.51)",
         margin: "auto",
         marginTop: "3%",
         width: "80%",
-        height: "350px",
+        height: "260px",
         borderRadius: 5
     }
 
@@ -34,24 +34,24 @@ export const WeekWeatherWidget = () => {
             {fiveDaysForecastRedux.fiveDaysData.map((day, index) => {
                 return <Box sx={boxStyle} key={index} padding={"auto"}>
                     <Typography>{day.day}</Typography>
-                    <ResponsiveContainer width="90%" height="70%">
+                    <ResponsiveContainer width="97%" height="100%">
                         <LineChart
-                            width={500}
-                            height={380}
+                            width={"100%"}
+                            height={"100%"}
                             data={day}
                             margin={{
                                 top: 10,
                                 right: 0,
-                                left:-25,
+                                left: -25,
                                 bottom: 0,
                             }}
                         >
-                            <CartesianGrid vertical={true} strokeDasharray="3 3"></CartesianGrid>
+                            <CartesianGrid vertical={true} strokeDasharray="1 1"></CartesianGrid>
                             <XAxis dataKey="hour" />
-                            <YAxis/>
+                            <YAxis />
                             <Tooltip />
-                            <Legend/>
-                            <Line type="monotone" dataKey="temp" stroke="#84d89d" dot={{ r: 8 }} />
+                            <Legend />
+                            <Line type="monotone" dataKey="temperature" stroke="#84d89d" dot={{ r: 8 }} />
                         </LineChart>
                     </ResponsiveContainer>
                 </Box>
@@ -60,14 +60,3 @@ export const WeekWeatherWidget = () => {
     )
 
 }
-/* {day.map((threeHour) => {
-                        return (
-                            <Stack direction="row">
-                                <ThemeProvider theme={theme}>
-                                    <Typography variant="h2" margin={'auto'}>{threeHour.time}</Typography>
-                                    <Typography variant="h2" margin={'auto'}>{threeHour.pop}</Typography>
-                                    <Typography variant="h2" margin={'auto'}>{threeHour.minTemp}/{threeHour.maxTemp}°C</Typography>
-                                </ThemeProvider>
-                            </Stack>
-                        )
-                    })} */

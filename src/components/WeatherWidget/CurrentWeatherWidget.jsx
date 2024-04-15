@@ -10,7 +10,7 @@ theme.typography.h3 = {
     fontWeight: 'light',
     fontSize: '1.2rem',
     '@media (min-width:600px)': {
-        fontSize: '1.2rem',
+        fontSize: '0.9rem',
     },
     [theme.breakpoints.up('md')]: {
         fontSize: '1.2rem',
@@ -30,8 +30,7 @@ const CurrentWeatherWidget = () => {
                                 currentWeatherRedux.precipitations.map((state, index) =>
                                     <Typography variant="h3" color="#343434" fontWeight={'medium'} key={index}>{state.main}</Typography>)}
                             </Stack>
-                            <Typography variant="h3" margin={"5%"} color="#343434">{currentWeatherRedux.minTemp}°С/{currentWeatherRedux.maxTemp}°С</Typography>
-                            <Typography variant="h3" color="#343434" fontWeight={'medium'}>Probability of precipitation: {currentWeatherRedux.pop}</Typography>
+                            <Typography variant="h3" marginTop={"10%"} color="#343434">Feels like {currentWeatherRedux.feelsLike}°С</Typography>
                         </ThemeProvider>
                     </Stack> : ''}
                     <TimeWidget></TimeWidget>

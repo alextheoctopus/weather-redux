@@ -2,6 +2,20 @@ import { getDate } from "../../../store/features/time"
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
 import { Stack, Typography } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@emotion/react';
+const theme = createTheme();
+
+theme.typography.h3 = {
+    fontWeight: 'light',
+    fontSize: '1.2rem',
+    '@media (min-width:600px)': {
+        fontSize: '1.2rem',
+    },
+    [theme.breakpoints.up('md')]: {
+        fontSize: '1.2rem',
+    },
+};
 export const TimeWidget = ({ currentWeatherRedux }) => {
     let currentDate = new Date();
     let currentTime = currentDate.toString();
@@ -22,9 +36,11 @@ export const TimeWidget = ({ currentWeatherRedux }) => {
         };
     }, []);
     return (
-        <Stack direction="column" margin="auto">
-            <Typography fontSize={19} marginTop={"15%"} color="#343434">{timeRedux.month} {timeRedux.day},<br /> {timeRedux.weekDay}</Typography>
-            <Typography fontSize={19} marginTop={"15%"} color="#343434">{time}</Typography>
-        </Stack>
+        <ThemeProvider theme={theme}>
+            <Stack direction="column" margin="auto" padding={"15%"}>
+                <Typography variant="h3" fontSize={19} color="#343434">{timeRedux.month} {timeRedux.day},<br /> {timeRedux.weekDay}</Typography>
+                <Typography variant="h3" fontSize={19} color="#343434">{time}</Typography>
+            </Stack>
+        </ThemeProvider>
     )
 }

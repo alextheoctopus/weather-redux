@@ -4,15 +4,11 @@ import { getCities, fetchLocation } from "../features/location";
 import { getDate } from "../features/time";
 
 export const getCurrentForecast = (dispatch, location, ApiKey) => {
-    dispatch(fetchCurrentForecast({ location: location, ApiKey: ApiKey })).then(() =>
-        dispatch(updateData())
-    );
+    dispatch(fetchCurrentForecast({ location: location, ApiKey: ApiKey }));
     dispatch(getDate('lastFetchedTimeCurrent'));
 }
 export const getFiveDaysForecast = (dispatch, location, ApiKey) => {
-    dispatch(fetchFiveDaysForecast({ location: location, ApiKey: ApiKey })).then(() =>
-        dispatch(updateData5())
-    );
+    dispatch(fetchFiveDaysForecast({ location: location, ApiKey: ApiKey }));
     dispatch(getDate('lastFetchedTimeFive'));
 }
 export const getCitiesRedux = (dispatch, country) => {
