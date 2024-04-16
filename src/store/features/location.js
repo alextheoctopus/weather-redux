@@ -58,7 +58,7 @@ export const location = createSlice({
             })
             .addCase(fetchLocation.fulfilled, (state, action) => {
                 state.loading = false;
-                state.location.latitude = action.payload.latitude;
+                state.location.latitude = action.payload.latitude;//после точки оставить 4 символа
                 state.location.longitude = action.payload.longitude;
 
                 localStorage.removeItem('city');

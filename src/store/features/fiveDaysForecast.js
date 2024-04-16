@@ -55,7 +55,7 @@ export const fiveDaysForecast = createSlice({
                             params.temperature = Math.round(threeHour.main.temp - 273);
                             tempRange.push(parseInt(params.temperature));
                         }
-                        params.day = updateDate(threeHour.dt_txt.slice(0, 10));
+                        params.day=fiveDaysForecast.caseReducers.updateDate(state, {payload:threeHour.dt_txt.slice(0, 10)});
                         params.hour = threeHour.dt_txt.slice(11, 13);
                         dayArray.push(params);
                         console.log(dayArray, index);
@@ -78,18 +78,19 @@ export const fiveDaysForecast = createSlice({
             }
         },
         updateDate:(state,action)=>{
+            console.log("action",action.payload)
             const dateStr = action.payload;
             const date = new Date(dateStr);
 
-const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-const dayOfWeek = daysOfWeek[date.getDay()];
-const dayOfMonth = date.getDate();
+            const dayOfWeek = daysOfWeek[date.getDay()];
+            const dayOfMonth = date.getDate();
 const month = months[date.getMonth()];
 
 const formattedDate = `${dayOfWeek} ${dayOfMonth} of ${month}`;
-
+// console.log("formattedDate",formattedDate);
 return formattedDate; 
         }
     },
