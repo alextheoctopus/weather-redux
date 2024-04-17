@@ -21,18 +21,20 @@ const CurrentWeatherWidget = () => {
     return (
         <>
             <UpdateHandler type='Current'></UpdateHandler>
-            <Box margin="auto" sx={{ borderRadius: 5, width: "80%", height: "226px", margin: "auto", backgroundColor: "#d9d9d96e" }}>
+            <Box margin="auto" sx={{ borderRadius: 5, width: "80%", margin: "auto", backgroundColor: "#d9d9d96e" }}>
                 <Stack direction="row">
-                    {currentWeatherRedux.data ? <Stack direction="column" margin="auto">
+                    {currentWeatherRedux.data ?
                         <ThemeProvider theme={theme}>
-                            <Typography variant="h3" marginTop={"10%"} color="#343434">{currentWeatherRedux.curTemp}°С</Typography>
-                            <Stack direction="column">{currentWeatherRedux.precipitations &&
-                                currentWeatherRedux.precipitations.map((state, index) =>
-                                    <Typography variant="h3" color="#343434" fontWeight={'medium'} key={index}>{state.main}</Typography>)}
+                            <Stack direction="column" padding={0} margin={"auto"}>
+                                <Typography variant="h3" color="#343434">{currentWeatherRedux.curTemp}°С</Typography>
+                                {currentWeatherRedux.precipitations &&
+                                    currentWeatherRedux.precipitations.map((state, index) =>
+                                        <Typography variant="h3" color="#343434" fontWeight={'medium'} key={index}>{state.main}</Typography>)}
+
+                                <Typography variant="h3" color="#343434">Feels like {currentWeatherRedux.feelsLike}°С</Typography>
                             </Stack>
-                            <Typography variant="h3" marginTop={"10%"} color="#343434">Feels like {currentWeatherRedux.feelsLike}°С</Typography>
                         </ThemeProvider>
-                    </Stack> : ''}
+                        : ''}
                     <TimeWidget></TimeWidget>
                 </Stack>
             </Box>

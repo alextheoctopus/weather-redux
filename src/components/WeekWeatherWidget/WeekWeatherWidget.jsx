@@ -4,15 +4,7 @@ import { Box, Typography, Stack, ThemeProvider, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { createTheme } from '@mui/material/styles';
 import { updateData5 } from "../../store/features/fiveDaysForecast";
-// const data = [
-//     { name: 'Jan', uv: 4000, pv: 2400, amt: 2400 },
-//     { name: 'Feb', uv: 3000, pv: 1398, amt: 2210 },
-//     { name: 'Mar', uv: 2000, pv: 9800, amt: 2290 },
-//     { name: 'Apr', uv: 2780, pv: 3908, amt: 2000 },
-//     { name: 'May', uv: 1890, pv: 4800, amt: 2181 },
-//     { name: 'Jun', uv: 2390, pv: 3800, amt: 2500 },
-//     { name: 'Jul', uv: 3490, pv: 4300, amt: 2100 },
-// ];
+import { UpdateHandler } from '../updateHandler/UpdateHandler';
 
 
 const theme = createTheme();
@@ -52,15 +44,15 @@ export const WeekWeatherWidget = () => {
         height: "300px",
         borderRadius: 5
     }
-    console.log(fiveDaysForecastRedux.fiveDaysData)
 
     return (
         <Stack direction="column">
-            <Button sx={{ height: "100px" }} onClick={() => dispatch(updateData5())} ></Button>
+            <UpdateHandler type='FiveDays'></UpdateHandler>
+            {/* <Button sx={{ height: "100px" }} onClick={() => dispatch(updateData5())} ></Button> */}
             {fiveDaysForecastRedux.fiveDaysData.map((day, index) => {
                 return (
                     <Box sx={boxStyle} key={index} padding={"auto"}>
-                        <ResponsiveContainer width="97%" height="91%">
+                         <ResponsiveContainer width="97%" height="91%">
                             <LineChart
                                 width={"100%"}
                                 height={"100%"}
@@ -77,25 +69,11 @@ export const WeekWeatherWidget = () => {
                                 <YAxis domain={[day[index].min, day[index].max]} includeHidden />
                                 <Tooltip content={<CustomTooltip />} />
                                 <Legend />
-                                <Line type="monotone" dataKey="temperature" stroke="#84d89d" dot={{ r: 8 }} />
+                                <Line type="monotone" dataKey="temperature" stroke="#84d89d" strokeWidth={2} dot={{ r: 8 }} />
                             </LineChart>
-                        </ResponsiveContainer>
+                        </ResponsiveContainer> 
                     </Box>)
             })}
         </Stack>
     )
-
 }
-
-
-// const CustomTooltipGraph = () => (
-//     <ResponsiveContainer width="100%" height={400}>
-//         <LineChart data={data}>
-//             <Tooltip content={<CustomTooltip />} />
-//             <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-//             <Line type="monotone" dataKey="pv" stroke="#82ca9d" />
-//         </LineChart>
-//     </ResponsiveContainer>
-// );
-
-// export default CustomTooltipGraph;

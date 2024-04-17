@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import countries from '../../assets/countriesList/countries.json';
-
+import { fetchCurrentForecast } from "./currentForecast";
 export const fetchLocation = createAsyncThunk('location/fetchLocation', async () => {
     return new Promise((resolve, reject) => {
         navigator.geolocation.getCurrentPosition(
@@ -35,7 +35,6 @@ export const location = createSlice({
         getCities: (state, action) => {
             let city = state.countries[action.payload];
             state.cities = city;
-            console.log("city", JSON.stringify(state.cities));
         },
         setCountry: (state, action) => {
             state.country = action.payload
@@ -58,12 +57,19 @@ export const location = createSlice({
             })
             .addCase(fetchLocation.fulfilled, (state, action) => {
                 state.loading = false;
-                state.location.latitude = action.payload.latitude;//после точки оставить 4 символа
-                state.location.longitude = action.payload.longitude;
-
+                state.location.latitude = action.payload.latitude.toFixed(4);//после точки оставить 4 символа
+                state.location.longitude = action.payload.longitude.toFixed(4);
+                //получение прогноза после определения локации
+                // fetchCurrentForecast({
+                //     location: {
+                //         latitude: state.location.latitude,
+                //         longitude: state.location.longitude
+                //     },
+                //     ApiKey: "a7eacf07c5e59d8777193b9d8e440c46"
+                // });
                 localStorage.removeItem('city');
-                localStorage.setItem('longitude', action.payload.longitude);
-                localStorage.setItem('latitude', action.payload.latitude);
+                localStorage.setItem('longitude', action.payload.longitude.toFixed(4));
+                localStorage.setItem('latitude', action.payload.latitude.toFixed(4));
             })
             .addCase(fetchLocation.rejected, (state, action) => {
                 state.loading = false;

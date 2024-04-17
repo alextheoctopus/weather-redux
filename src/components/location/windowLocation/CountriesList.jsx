@@ -30,7 +30,10 @@ export const CountriesList = ({ dispatch, setLoc }) => {
                     </Button> : '') :
                 reduxLocation.cities.map((town, ind) =>
                     regex.test(town) ?
-                        <Button key={ind} size='small' onClick={() => { dispatch(setCity(town)); setLoc(false); dispatch(setCities(null)) }}>
+                        <Button key={ind} size='small' onClick={() => {
+                            dispatch(setCity(town)); setLoc(false); dispatch(setCities(null));
+                            localStorage.setItem("havingForecast", false);
+                        }}>
                             <Typography fontSize={12} color={"white"}>{town}</Typography>
                         </Button> : '')}
         </Stack>

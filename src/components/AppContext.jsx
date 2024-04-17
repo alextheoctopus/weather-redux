@@ -11,6 +11,8 @@ export const AppContext = createContext(
         setUserLocation: () => { return null },
         country: '',
         setCountry: () => { return null },
-        mode:'online',
-        setMode:()=>{ return null },
+        mode: 'online',
+        setMode: () => { return null },
+        setShowForecast: () => { return null },
+        dispatch: () => { return null },
     });

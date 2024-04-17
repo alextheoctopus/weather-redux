@@ -11,10 +11,16 @@ export function WindowLoc({ dispatch }) {
     position: 'absolute', marginLeft: "5%", marginTop: "8%", zIndex: 10, overflowX: 'auto', backgroundColor: "#A8A4D9"
   };//сделать норм бегунок
 
+  const defineAuto = () => {
+    getAutoUserPosition(dispatch);
+    dispatch(setCity(null));
+    setLoc(false);
+    localStorage.setItem("havingForecast", false);
+  }
   return (
     <Box borderRadius={5} width={"245px"} height={"414px"}
       sx={BoxStyle} >
-      <Button margin={"auto"} onClick={function () { getAutoUserPosition(dispatch); dispatch(setCity(null)); setLoc(false) }}>
+      <Button margin={"auto"} onClick={defineAuto}>
         <Typography color={"white"} border="1px grey solid" borderRadius={5} padding={'1%'} fontSize={14}>Define automatically</Typography>
       </Button>
       <CountriesList dispatch={dispatch} setLoc={setLoc}></CountriesList>

@@ -1,5 +1,5 @@
-import { fetchCurrentForecast, updateData, updateLastFetched } from "../features/currentForecast";
-import { fetchFiveDaysForecast, updateData5 } from "../features/fiveDaysForecast";
+import { fetchCurrentForecast } from "../features/currentForecast";
+import { fetchFiveDaysForecast } from "../features/fiveDaysForecast";
 import { getCities, fetchLocation } from "../features/location";
 import { getDate } from "../features/time";
 
