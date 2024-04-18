@@ -1,65 +1,72 @@
 import { Typography, Box, Stack } from '@mui/material';
-import currentWeather from '../../assets/currentWeatherJson/currentFormat.json'
-const ParameterWidget = (props) => {
-    //вообще если с запросом, 
-    //то надо сюда в пропсы из апп передавать data а внутри нее json ответ от погоды
-    // но у меня данные из json файла поэтому записываю их сразу в переменную
-    let data = currentWeather;
-    //эта проверка нужна только для апи, чтобы проверить пришли данные или нет
-    let humidity, wind, direction, pressure = null;
-    if (data) {
-        pressure = -263 + data.main.pressure + "mm of mercury";
-        humidity = data.main.humidity + "%";
-        wind = data.wind.speed;
-        let deg = data.wind.deg;
-        if (deg >= 0 && deg < 45) {
-            direction = "North";
-        } else if (deg >= 45 && deg < 90) {
-            direction = "North-East";
-        } else if (deg >= 90 && deg < 135) {
-            direction = "East";
-        } else if (deg >= 135 && deg < 180) {
-            direction = "South-East";
-        } else if (deg >= 180 && deg < 225) {
-            direction = "South";
-        } else if (deg >= 225 && deg < 270) {
-            direction = "South-West";
-        } else if (deg >= 270 && deg < 315) {
-            direction = "West";
-        } else if (deg >= 315 && deg < 360) {
-            direction = "North-West";
-        } else if (deg === 0 || deg === 360) {
-            direction = "North";
-        }
-    }
+import { useSelector } from 'react-redux';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@emotion/react';
+const theme = createTheme();
+
+theme.typography.h3 = {
+    fontSize: '1.2rem',
+    color: "#343434",
+    '@media (min-width:600px)': {
+        fontSize: '1.2rem',
+
+    },
+    [theme.breakpoints.up('md')]: {
+        fontSize: '1.9rem',
+
+    },
+};
+theme.typography.h4 = {
+    fontSize: '1.0rem',
+    '@media (min-width:600px)': {
+
+        fontSize: '1.0rem',
+    },
+    [theme.breakpoints.up('md')]: {
+
+        fontSize: '1.7rem',
+    },
+};
+export const ParameterWidget = (props) => {
+    const currentForecast = useSelector(state => state.currentForecast);
     let boxStyle = {
         borderRadius: 5,
         width: props.width,
-        height: "90px",
-        marginLeft: "auto",
-        marginRight: "auto",
-        marginTop: "5%",
-        backgroundColor: "#d9d9d96e"
+        backgroundColor: "#d9d9d96e",
+        paddingBottom: "3%"
     }
     return (
-        <Box sx={boxStyle}>
-            <Typography marginTop={"10%"} fontSize={22}>{props.name}</Typography>
-            {props.name === "Wind" ?
-                <Stack direction="row">
-                    <Typography margin="auto">{wind}m/s</Typography>
-                    <Typography margin="auto">{direction}</Typography>
-                </Stack>
-                :
-                props.name === "Humidity" ?
-                    <>
-                        <Typography margin="auto" >{humidity}</Typography>
-                    </> :
-                    props.name === "Pressure" ?
+        <ThemeProvider theme={theme}>
+            <Box sx={boxStyle}>
+                <Typography variant="h3" marginTop={"3%"} fontSize={22}>{props.name}</Typography>
+                {props.name === "Wind" ?
+                    <Stack direction="row">
+                        <Typography fontWeight={'light'} variant="h4" margin="auto">{currentForecast.wind}m/s</Typography>
+                        <Typography fontWeight={'light'}  variant="h4" margin="auto">{currentForecast.direction}</Typography>
+                    </Stack>
+                    :
+                    props.name === "Humidity" ?
                         <>
-                            <Typography>{pressure}</Typography>
-                        </> : ''
-            }
-        </Box >
+                            <Typography fontWeight={'light'}  variant="h4" margin="auto" >{currentForecast.humidity}</Typography>
+                        </> :
+                        props.name === "Pressure" ?
+                            <>
+                                <Typography fontWeight={'light'}  variant="h4">{currentForecast.pressure}</Typography>
+                            </> :
+                            props.name === "Visibility" ?
+                                <>
+                                    <Typography fontWeight={'light'}  variant="h4">{currentForecast.visibility}</Typography>
+                                </> :
+                                props.name === "Sunrise" ?
+                                    <>
+                                        <Typography fontWeight={'light'}  variant="h4">{currentForecast.sunrise}</Typography>
+                                    </> :
+                                    props.name === "Sunset" ?
+                                        <>
+                                            <Typography fontWeight={'light'} variant="h4">{currentForecast.sunset}</Typography>
+                                        </> : ''
+                }
+            </Box >
+        </ThemeProvider>
     )
 }
-export default ParameterWidget;

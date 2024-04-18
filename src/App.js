@@ -13,7 +13,7 @@ let AppStyle = {
   textAlign: "center",
   background: "linear-gradient(#3E3EB0,#b5b5c552 , #D9D9D9)",
   marginLeft: "auto",
-  marginRight: "auto"
+  marginRight: "auto",
 }
 const AppRedux = () => {
   const dispatch = useDispatch();
@@ -26,9 +26,8 @@ const AppRedux = () => {
 const MainApp = ({ dispatch }) => {
   const [loc, setLoc] = useState(false);
   const locationRedux = useSelector(state => state.location);
-  const [showForecast, setShowForecast] = useState(localStorage.getItem("havingForecast"));
   return (
-    <AppContext.Provider value={{ loc, setLoc, setShowForecast, dispatch }}>
+    <AppContext.Provider value={{ loc, setLoc, dispatch }}>
       {!navigator.onLine && <Typography color={"#212121"}>You are in offline mode</Typography>}
       {loc && <WindowLoc dispatch={dispatch}></WindowLoc>}
       <Stack container>
@@ -39,7 +38,7 @@ const MainApp = ({ dispatch }) => {
       </Stack >
       {locationRedux.location.latitude || locationRedux.location.city ?
         <FetchForecast></FetchForecast>
-        : <Typography fontSize={25} color={"white"}> To display the weather, please select a location </Typography>}
+        : <Typography height={window.innerHeight} fontSize={25} color={"white"}> To display the weather, please select a location </Typography>}
     </AppContext.Provider >
   );
 }

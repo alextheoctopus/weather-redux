@@ -23,6 +23,11 @@ export const currentForecast = createSlice({
         precipitations: null || JSON.parse(localStorage.getItem('precipitations')),
         sunrise: null || localStorage.getItem('sunrise'),
         sunset: null || localStorage.getItem('sunset'),
+        pressure: null || localStorage.getItem('pressure'),
+        humidity: null || localStorage.getItem('humidity'),
+        wind: null || localStorage.getItem('wind'),
+        direction: null || localStorage.getItem('direction'),
+        visibility: null || localStorage.getItem('visibility')
     },
     reducers: {
         updateData: (state) => {
@@ -34,8 +39,44 @@ export const currentForecast = createSlice({
                 state.feelsLike = Math.round(state.data.main.feels_like - 273)
             state.precipitations = [];
             state.data.weather.forEach((condition) => state.precipitations.push(condition));//состояние на данный момент
-            state.sunset = Date(state.data.sys.sunset).slice(16, 21);
-            state.sunrise = Date(state.data.sys.sunrise).slice(16, 21);
+            var date = new Date(state.data.sys.sunset * 1000)
+            var hours = date.getHours()
+            var minutes = "0" + date.getMinutes()
+            state.sunset = hours + ':' + minutes.substr(-2);
+            var date_sunrise = new Date(state.data.sys.sunrise * 1000)
+            var hours_sunrise = date_sunrise.getHours() 
+            var minutes_sunrise = "0" + date_sunrise.getMinutes()
+            state.sunrise = hours_sunrise + ':' + minutes_sunrise.substr(-2);
+            state.pressure = -263 + state.data.main.pressure + "mm of mercury";
+            state.humidity = state.data.main.humidity + "%";
+            state.wind = state.data.wind.speed;
+            state.visibility = state.data.visibility + "m";
+            let deg = state.data.wind.deg;
+            if (deg >= 0 && deg < 45) {
+                state.direction = "North";
+            } else if (deg >= 45 && deg < 90) {
+                state.direction = "North-East";
+            } else if (deg >= 90 && deg < 135) {
+                state.direction = "East";
+            } else if (deg >= 135 && deg < 180) {
+                state.direction = "South-East";
+            } else if (deg >= 180 && deg < 225) {
+                state.direction = "South";
+            } else if (deg >= 225 && deg < 270) {
+                state.direction = "South-West";
+            } else if (deg >= 270 && deg < 315) {
+                state.direction = "West";
+            } else if (deg >= 315 && deg < 360) {
+                state.direction = "North-West";
+            } else if (deg === 0 || deg === 360) {
+                state.direction = "North";
+            }
+            localStorage.setItem('direction', state.direction);
+            localStorage.setItem('visibility', state.visibility);
+            localStorage.setItem('humidity', state.humidity);
+            localStorage.setItem('wind', state.wind);
+            localStorage.setItem('pressure', state.pressure);
+
             localStorage.setItem('sunrise', state.sunrise);
             localStorage.setItem('sunset', state.sunset);
 

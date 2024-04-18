@@ -13,7 +13,7 @@ theme.typography.h3 = {
         fontSize: '1.2rem',
     },
     [theme.breakpoints.up('md')]: {
-        fontSize: '1.2rem',
+        fontSize: '1.9rem',
     },
 };
 export const TimeWidget = ({ currentWeatherRedux }) => {
@@ -37,9 +37,9 @@ export const TimeWidget = ({ currentWeatherRedux }) => {
     }, []);
     return (
         <ThemeProvider theme={theme}>
-            <Stack direction="column" margin="auto" padding={"15%"}>
+            <Stack direction="column" margin="auto" >
                 <Typography variant="h3" fontSize={19} color="#343434">{timeRedux.month} {timeRedux.day},<br /> {timeRedux.weekDay}</Typography>
-                <Typography variant="h3" fontSize={19} color="#343434">{time}</Typography>
+                <Typography variant="h3" fontSize={19} color="#343434" fontWeight={'light'}>{time}</Typography>
             </Stack>
         </ThemeProvider>
     )

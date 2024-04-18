@@ -13,6 +13,5 @@ export const AppContext = createContext(
         setCountry: () => { return null },
         mode: 'online',
         setMode: () => { return null },
-        setShowForecast: () => { return null },
         dispatch: () => { return null },
     });

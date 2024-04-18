@@ -48,7 +48,6 @@ export const WeekWeatherWidget = () => {
     return (
         <Stack direction="column">
             <UpdateHandler type='FiveDays'></UpdateHandler>
-            {/* <Button sx={{ height: "100px" }} onClick={() => dispatch(updateData5())} ></Button> */}
             {fiveDaysForecastRedux.fiveDaysData.map((day, index) => {
                 return (
                     <Box sx={boxStyle} key={index} padding={"auto"}>

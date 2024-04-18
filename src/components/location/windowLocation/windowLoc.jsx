@@ -5,21 +5,30 @@ import { Box, Button, Typography, Stack, Input } from '@mui/material';
 import { AppContext } from '../../AppContext';
 import { CountriesList } from './CountriesList';
 import { setCity, setCoords } from '../../../store/features/location';
+
+
 export function WindowLoc({ dispatch }) {
   let { setLoc } = useContext(AppContext);
   let BoxStyle = {
-    position: 'absolute', marginLeft: "5%", marginTop: "8%", zIndex: 10, overflowX: 'auto', backgroundColor: "#A8A4D9"
+    marginTop: "10%",
+    zIndex: 100,
+    overflowX: 'auto',
+    backgroundColor: "#A8A4D9",
+    position: "absolute",
+    marginInline: "auto",
+    insetInline: 0,
+    insetBlockStart: "50 %",
+    transform: "translateY(-50 %)",
   };//сделать норм бегунок
 
   const defineAuto = () => {
     getAutoUserPosition(dispatch);
     dispatch(setCity(null));
     setLoc(false);
-    localStorage.setItem("havingForecast", false);
   }
   return (
     <Box borderRadius={5} width={"245px"} height={"414px"}
-      sx={BoxStyle} >
+      sx={BoxStyle} marginInline={"auto"} >
       <Button margin={"auto"} onClick={defineAuto}>
         <Typography color={"white"} border="1px grey solid" borderRadius={5} padding={'1%'} fontSize={14}>Define automatically</Typography>
       </Button>
