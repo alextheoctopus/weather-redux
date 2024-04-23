@@ -29,6 +29,8 @@ theme.typography.h4 = {
 };
 export const ParameterWidget = (props) => {
     const currentForecast = useSelector(state => state.currentForecast);
+    const airPolution = useSelector(state => state.airPolution);
+
     let boxStyle = {
         borderRadius: 5,
         width: props.width,
@@ -42,29 +44,33 @@ export const ParameterWidget = (props) => {
                 {props.name === "Wind" ?
                     <Stack direction="row">
                         <Typography fontWeight={'light'} variant="h4" margin="auto">{currentForecast.wind}m/s</Typography>
-                        <Typography fontWeight={'light'}  variant="h4" margin="auto">{currentForecast.direction}</Typography>
+                        <Typography fontWeight={'light'} variant="h4" margin="auto">{currentForecast.direction}</Typography>
                     </Stack>
                     :
                     props.name === "Humidity" ?
                         <>
-                            <Typography fontWeight={'light'}  variant="h4" margin="auto" >{currentForecast.humidity}</Typography>
+                            <Typography fontWeight={'light'} variant="h4" margin="auto" >{currentForecast.humidity}</Typography>
                         </> :
                         props.name === "Pressure" ?
                             <>
-                                <Typography fontWeight={'light'}  variant="h4">{currentForecast.pressure}</Typography>
+                                <Typography fontWeight={'light'} variant="h4">{currentForecast.pressure}</Typography>
                             </> :
                             props.name === "Visibility" ?
                                 <>
-                                    <Typography fontWeight={'light'}  variant="h4">{currentForecast.visibility}</Typography>
+                                    <Typography fontWeight={'light'} variant="h4">{currentForecast.visibility}</Typography>
                                 </> :
                                 props.name === "Sunrise" ?
                                     <>
-                                        <Typography fontWeight={'light'}  variant="h4">{currentForecast.sunrise}</Typography>
+                                        <Typography fontWeight={'light'} variant="h4">{currentForecast.sunrise}</Typography>
                                     </> :
                                     props.name === "Sunset" ?
                                         <>
                                             <Typography fontWeight={'light'} variant="h4">{currentForecast.sunset}</Typography>
-                                        </> : ''
+                                        </> :
+                                        props.name === "AQI" ?
+                                            <>
+                                                <Typography fontWeight={'light'} variant="h4">{airPolution.estimate}</Typography>
+                                            </> : ''
                 }
             </Box >
         </ThemeProvider>

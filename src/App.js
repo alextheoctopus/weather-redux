@@ -23,6 +23,7 @@ const AppRedux = () => {
     </div>
   )
 }
+//TODO: добавить апи для загрязненности воздуха
 const MainApp = ({ dispatch }) => {
   const [loc, setLoc] = useState(false);
   const locationRedux = useSelector(state => state.location);
