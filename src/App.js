@@ -11,7 +11,8 @@ import { BodyForecast } from "./components/BodyForecast/BodyForecast";
 import { FetchForecast } from "./components/fetchForecast/FetchForecast";
 let AppStyle = {
   textAlign: "center",
-  background: "linear-gradient(#3E3EB0,#b5b5c552 , #D9D9D9)",
+  background: "linear-gradient(#5A87BD,#0E3E6E , #5A87BD)",
+  // background:"#5A87BD",
   marginLeft: "auto",
   marginRight: "auto",
 }

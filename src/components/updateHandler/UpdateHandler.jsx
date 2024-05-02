@@ -7,9 +7,6 @@ export const UpdateHandler = ({ type, selector }) => {
     const dispatch = useDispatch();
     const locationRedux = useSelector(state => state.location);
     const timeRedux = useSelector(state => state.time);
-    const currentForecastRedux = useSelector(state => state.currentForecast);
-    const fiveDaysForecastRedux = useSelector(state => state.fiveDaysForecast);
-    
     const updateHandlerCurrent = () => {
         getCurrentForecast(dispatch, locationRedux.location, "a7eacf07c5e59d8777193b9d8e440c46");
     }
@@ -19,13 +16,13 @@ export const UpdateHandler = ({ type, selector }) => {
     return (
         <>
             {type === "Current" ?
-                <Button onClick={updateHandlerCurrent}>
-                    <RestartAlt htmlColor="#323332"></RestartAlt>
-                    <Typography color={"#323332"}>Last update was:{timeRedux.lastFetchedCurrent}</Typography>
+                <Button variant={'contained'} sx={{marginTop:"2%"}} onClick={updateHandlerCurrent}>
+                    <RestartAlt htmlColor="#EEEDED"></RestartAlt>
+                    <Typography fontWeight={"Bold"} color={"#EEEDED"}>Last update was:{timeRedux.lastFetchedCurrent}</Typography>
                 </Button> :
-                <Button onClick={updateHandlerFiveDays}>
-                    <RestartAlt htmlColor="#323332"></RestartAlt>
-                    <Typography color={"#323332"}>Last update was:{timeRedux.lastFetchedFive}</Typography>
+                <Button variant={'contained'} sx={{marginTop:"2%"}} onClick={updateHandlerFiveDays}>
+                    <RestartAlt htmlColor="#EEEDED"></RestartAlt>
+                    <Typography fontWeight={"Bold"} color={"#EEEDED"}>Last update was:{timeRedux.lastFetchedFive}</Typography>
                 </Button>}
         </>
     )

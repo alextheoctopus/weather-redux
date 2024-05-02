@@ -34,7 +34,7 @@ export const ParameterWidget = (props) => {
     let boxStyle = {
         borderRadius: 5,
         width: props.width,
-        backgroundColor: "#d9d9d96e",
+        backgroundColor: "#EEEDED",
         paddingBottom: "3%"
     }
     return (
@@ -67,7 +67,7 @@ export const ParameterWidget = (props) => {
                                         <>
                                             <Typography fontWeight={'light'} variant="h4">{currentForecast.sunset}</Typography>
                                         </> :
-                                        props.name === "AQI" ?
+                                        props.name === "Air Quality Index" ?
                                             <>
                                                 <Typography fontWeight={'light'} variant="h4">{airPolution.estimate}</Typography>
                                             </> : ''

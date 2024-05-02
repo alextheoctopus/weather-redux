@@ -21,8 +21,7 @@ export const airPolution = createSlice({
         loading: false,
         error: '',
         aqi: null || localStorage.getItem('aqi'),
-        estimate: null || JSON.parse(localStorage.getItem('estimate')),
-        /*Air Quality Index. Possible values: 1, 2, 3, 4, 5. Where 1 = Good, 2 = Fair, 3 = Moderate, 4 = Poor, 5 = Very Poor. If you want to recalculate Air Quality indexes according UK, Europe, USA and Mainland China scales please use "Air Pollution Index levels scale" page*/
+        estimate: null || localStorage.getItem('estimate'),
     },
     reducers: {
         updateData: (state) => {
@@ -38,8 +37,6 @@ export const airPolution = createSlice({
                                 state.estimate = "Very Poor"
                                 : state.estimate = ""
             localStorage.setItem('estimate', state.estimate);
-            console.log("data ", state.estimate);
-
         }
     },
     extraReducers: (builder) => {

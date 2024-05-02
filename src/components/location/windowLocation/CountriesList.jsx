@@ -13,9 +13,12 @@ export const CountriesList = ({ dispatch, setLoc }) => {
     const regex = new RegExp(`^${value}`, "i");
     const countries = Object.keys(reduxLocation.countries)
     return (
+
         <Stack direction="column" justifyContent="stretch" alignItems="stretch">
             <Stack direction="row">
-                <Input color='secondary' onChange={inputHandler} value={value}></Input>
+                <Box sx={{ color: "#343434", margin: "auto", border: "1px solid #0E3E6E", borderRadius: 5, padding: '5%' }}>
+                    <Input color='info' onChange={inputHandler} value={value}></Input>
+                </Box>
                 {reduxLocation.cities && <Button size='small'
                     onClick={() => { dispatch(setCities(null)); setValue('') }}>Back</Button>}
             </Stack>
@@ -26,15 +29,16 @@ export const CountriesList = ({ dispatch, setLoc }) => {
                         setValue('');
                         dispatch(getCities(location))
                     }}>
-                        <Typography fontSize={12} color={"white"}>{location}</Typography>
+                        <Typography fontSize={12} fontWeight={"Bold"} color={"#343434"}>{location}</Typography>
                     </Button> : '') :
                 reduxLocation.cities.map((town, ind) =>
                     regex.test(town) ?
                         <Button key={ind} size='small' onClick={() => {
                             dispatch(setCity(town)); setLoc(false); dispatch(setCities(null));
                         }}>
-                            <Typography fontSize={12} color={"white"}>{town}</Typography>
+                            <Typography fontWeight={"Bold"} fontSize={12} color={"#343434"}>{town}</Typography>
                         </Button> : '')}
         </Stack>
+
     );
 }

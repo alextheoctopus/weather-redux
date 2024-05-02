@@ -21,7 +21,7 @@ const CurrentWeatherWidget = () => {
     return (
         <>
             <UpdateHandler type='Current'></UpdateHandler>
-            <Box margin="auto" sx={{ paddingTop:"3%", paddingBottom:"3%", borderRadius: 5, width: "80%", margin: "auto", backgroundColor: "#d9d9d96e" }}>
+            <Box margin="auto" sx={{ paddingTop:"3%", paddingBottom:"3%", borderRadius: 5, width: "80%",marginTop:"2%", margin: "auto", backgroundColor: "#EEEDED", }}>
                 <Stack direction="row">
                     <ThemeProvider theme={theme}>
                         {currentWeatherRedux.data ?

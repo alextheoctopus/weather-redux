@@ -12,7 +12,7 @@ export const BodyForecast = () => {
             <Stack direction="column" >
                 <CurrentWeatherWidget></CurrentWeatherWidget>
                 <Stack direction="row" justifyContent="center" spacing={3} marginTop={"5%"}>
-                    <ParameterWidget width={"37.5%"} name={"AQI"}></ParameterWidget>
+                    <ParameterWidget width={"37.5%"} name={"Air Quality Index"}></ParameterWidget>
                 </Stack>
                 <Stack direction="row" justifyContent="center" spacing={3} marginTop={"5%"}>
                     <ParameterWidget width={"37.5%"} name={"Humidity"}></ParameterWidget>

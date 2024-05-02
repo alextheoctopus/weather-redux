@@ -34,15 +34,15 @@ const CustomTooltip = ({ active, payload, label }) => {
     return null;
 };
 export const WeekWeatherWidget = () => {
-    const dispatch = useDispatch();
     const fiveDaysForecastRedux = useSelector(state => state.fiveDaysForecast)
     let boxStyle = {
-        backgroundColor: "rgba(249, 241, 250, 0.51)",
+        backgroundColor: "#EEEDED",
         margin: "auto",
         marginTop: "3%",
         width: "80%",
         height: "300px",
-        borderRadius: 5
+        borderRadius: 5,
+        border:"1 px rgba(154, 255, 105, 1)"
     }
 
     return (
@@ -67,8 +67,8 @@ export const WeekWeatherWidget = () => {
                                 <XAxis dataKey="hour" strokeWidth={1} />
                                 <YAxis domain={[day[index].min, day[index].max]} includeHidden />
                                 <Tooltip content={<CustomTooltip />} />
-                                <Legend />
-                                <Line type="monotone" dataKey="temperature" stroke="#84d89d" strokeWidth={2} dot={{ r: 8 }} />
+                                <Legend stroke='rgba(255, 164, 57, 1)'/>
+                                <Line type="monotone" dataKey="temperature" stroke="#0E3E6E" strokeWidth={2} dot={{ r: 8 }} />
                             </LineChart>
                         </ResponsiveContainer> 
                     </Box>)
